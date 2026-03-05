@@ -128,9 +128,9 @@ DEFINE CLASS sfregistry AS sfcustom OF "sfctrls.vcx" 		&& A class that works wit
 		* Try to open the registry key. If we couldn't, return the default value.
 		
 			if not .OpenKey(tcSubKey, lnMainKey)
-				return luValue
+				return .F.
 			endif not .OpenKey(tcSubKey, lnMainKey)
-		
+
 		* Delete the key and return .T. if it succeeded.
 		
 			.nResult = RegDeleteValue(.nCurrentKey, tcValue)
