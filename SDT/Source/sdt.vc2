@@ -961,7 +961,9 @@ DEFINE CLASS sdtmgr AS basemgr OF "dbcxmgr.vcx" 		&& The SDT manager for DBCX
 			lcTag, ;
 			lcExpr, ;
 			lcFor, ;
-			lnBuffering
+			lnBuffering, ;
+			luExprValue, ;
+			luForValue
 		with This
 		
 		* Ensure the parameters are valid.
