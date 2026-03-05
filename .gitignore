@@ -1,5 +1,5 @@
-# use glob syntax.
-syntax: glob
+# OS files
+.DS_Store
 
 # VFP generated files
 *.err
