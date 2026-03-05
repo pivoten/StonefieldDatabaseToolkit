@@ -214,7 +214,7 @@ DEFINE CLASS sfconfigmgr AS sfcustom OF "sfctrls.vcx"
 							.lEvaluating    = .T.
 							luValue         = evaluate(lcScript)
 							.lEvaluating    = .F.
-							llOK            = .lErrorOccurred
+							llOK            = not .lErrorOccurred
 						endif .oScriptMgr.DoesScriptExist(lcScript)
 					endif vartype(luValue) = 'C' ...
 					do case
