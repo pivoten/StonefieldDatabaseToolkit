@@ -1231,6 +1231,8 @@ DEFINE CLASS sfutility AS sfcustom OF "sfctrls.vcx" 		&& A class containing vari
 						case lnHour = 0
 							lnHour = 12
 							lcTime = ' AM'
+						case lnHour = 12
+							lcTime = ' PM'
 						case lnHour > 12
 							lnHour = lnHour - 12
 							lcTime = ' PM'
@@ -1903,8 +1905,6 @@ DEFINE CLASS sfutility AS sfcustom OF "sfctrls.vcx" 		&& A class containing vari
 		
 		lparameters tcDirectory, ;
 			tlTotal
-		lparameters tcDirectory, ;
-			tlTotal
 		local lcDir, ;
 			lnResult, ;
 			lcDLL, ;
@@ -2452,7 +2452,7 @@ DEFINE CLASS sfutility AS sfcustom OF "sfctrls.vcx" 		&& A class containing vari
 			lnMSB = (lnLen * 8) - 1
 			if bittest(lnDecimal, lnMSB)
 				lnMax     = 2 ^ (lnMSB + 1)
-				lnDecimal = lnResult - lnMax
+				lnDecimal = lnDecimal - lnMax
 			endif bittest(lnDecimal, lnMSB)
 		endif tlSigned
 		return lnDecimal

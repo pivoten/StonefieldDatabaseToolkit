@@ -962,7 +962,9 @@ DEFINE CLASS sdtmgr AS basemgr OF "dbcxmgr.vcx" 		&& The SDT manager for DBCX
 			lcTag, ;
 			lcExpr, ;
 			lcFor, ;
-			lnBuffering
+			lnBuffering, ;
+			luExprValue, ;
+			luForValue
 		with This
 		
 		* Ensure the parameters are valid.
@@ -1938,7 +1940,7 @@ DEFINE CLASS sdtmgr AS basemgr OF "dbcxmgr.vcx" 		&& The SDT manager for DBCX
 					lnIDCode = .Hex2Decimal(lcLength)
 		
 		* If this is the property we want, replace the current property value with the
-		* new one and flag that we’re done.
+		* new one and flag that weï¿½re done.
 		
 					if lnIDCode = tnID
 						replace PROPERTY with stuff(PROPERTY, lnPos, lnLength, ;
@@ -2475,7 +2477,9 @@ DEFINE CLASS sdtmgr AS basemgr OF "dbcxmgr.vcx" 		&& The SDT manager for DBCX
 					fflush(lnHandle)
 					.Pause()
 				endif .lNeedPause
-				fclose(lnHandle)
+				if vartype(tnHandle) <> 'N' or tnHandle = 0
+					fclose(lnHandle)
+				endif vartype(tnHandle) <> 'N' ...
 			endif lnHandle >= 0
 		endwith
 		return llReturn
@@ -4615,8 +4619,8 @@ DEFINE CLASS sdtmgr AS basemgr OF "dbcxmgr.vcx" 		&& The SDT manager for DBCX
 			lcCurrDBC = dbc()
 			.SetDatabase(lcDBC)
 			if not empty(lcDBC)
-				lnTables = adbobject(laTables, 'Table')
-				lnViews  = adbobject(laViews,  'View')
+				lnTables = adbobjects(laTables, 'Table')
+				lnViews  = adbobjects(laViews,  'View')
 			else
 				lnTables = .Parent.DBCXGetAllObjects(lcDBC + '!Table', @laTables)
 				lnViews  = 0

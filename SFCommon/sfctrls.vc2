@@ -4238,7 +4238,7 @@ DEFINE CLASS sfform AS form 		&& The base class for Form objects
 				otherwise
 					loParent = .NULL.
 			endcase
-		enddo while vartype('loParent') = 'O'
+		enddo while vartype(loParent) = 'O'
 		
 		* If we couldn't find a valid parent object (likely because we're running in an
 		* EXE with debug info turned off, let's return ourselves.
@@ -10986,7 +10986,7 @@ DEFINE CLASS sftoolbar AS toolbar 		&& The base class for all Toolbar objects
 				otherwise
 					loParent = .NULL.
 			endcase
-		enddo while vartype('loParent') = 'O'
+		enddo while vartype(loParent) = 'O'
 		
 		* If we couldn't find a valid parent object (likely because we're running in an
 		* EXE with debug info turned off, let's return ourselves.

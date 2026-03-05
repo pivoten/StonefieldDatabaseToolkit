@@ -215,7 +215,7 @@ DEFINE CLASS sfconfigmgr AS sfcustom OF "sfctrls.vcx"
 							.lEvaluating    = .T.
 							luValue         = evaluate(lcScript)
 							.lEvaluating    = .F.
-							llOK            = .lErrorOccurred
+							llOK            = not .lErrorOccurred
 						endif .oScriptMgr.DoesScriptExist(lcScript)
 					endif vartype(luValue) = 'C' ...
 					do case
@@ -1313,8 +1313,9 @@ DEFINE CLASS sfpersistenttable AS sfpersistentfile OF "sfpersist.vcx"
 					lcKey   = .cKeyField
 					lcValue = .cValueField
 					insert into (.cAlias) (&lcKey, &lcValue) values (tcKey, tuValue)
+					llReturn = .T.
 				otherwise
-					replace (.cValueField) with luValue in (.cAlias)
+					replace (.cValueField) with tuValue in (.cAlias)
 					llReturn = .T.
 			endcase
 		endwith

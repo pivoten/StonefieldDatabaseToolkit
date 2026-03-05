@@ -395,7 +395,8 @@ DEFINE CLASS basemgr AS custom 		&& Base DBCX Extension manager (superclass for 
 			tcDBCX
 		local llReturn, ;
 			lcPropName, ;
-			lcName
+			lcName, ;
+			lcPropCursor
 		with This
 		
 		* Open our meta data table exclusively.
@@ -3125,6 +3126,7 @@ DEFINE CLASS coremgr AS basemgr OF "dbcxmgr.vcx" 		&& Core DBCX Properties Manag
 		lparameters tnError, ;
 			tcMethod, ;
 			tnLine
+		local lcReturn
 		if upper(tcMethod) = 'VALIDATEVIEWINDEX'
 			This.lIndexError = .T.
 			return
@@ -4359,7 +4361,7 @@ DEFINE CLASS dbcxmgr AS form
 		* Ensure the specified manager exists.
 		
 				case empty(lcManager) or type(lcManager) <> 'O' or isnull(lcManager)
-					.Warning(strtran(ccERR_INVALID_MANAGER, ccMSG_INSERT, lcManager))
+					.Warning(strtran(ccERR_INVALID_MANAGER, ccMSG_INSERT1, lcManager))
 		
 		* Ensure the property exists.
 		
@@ -5250,7 +5252,9 @@ DEFINE CLASS dbcxmgr AS form
 		*==============================================================================
 		
 		local lnManagers, ;
-			lnManager
+			lnManager, ;
+			llReturn, ;
+			lcManager
 		with This
 			lnManagers = alen(.aManagers, 1)
 			llReturn   = .T.

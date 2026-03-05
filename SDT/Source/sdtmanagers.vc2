@@ -129,7 +129,8 @@ DEFINE CLASS sdtcontroller AS sdtcontainer OF "sdtcontrols.vcx" 		&& A class tha
 
 	PROCEDURE Init
 		local lcDirectory, ;
-			lnI
+			lnI, ;
+			lcHelpFile
 		
 		* Set the default title for the error and message handler objects. Get the
 		* saved error handler.
