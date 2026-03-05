@@ -1228,6 +1228,8 @@ DEFINE CLASS sfutility AS sfcustom OF "sfctrls.vcx" 		&& A class containing vari
 						case lnHour = 0
 							lnHour = 12
 							lcTime = ' AM'
+						case lnHour = 12
+							lcTime = ' PM'
 						case lnHour > 12
 							lnHour = lnHour - 12
 							lcTime = ' PM'
