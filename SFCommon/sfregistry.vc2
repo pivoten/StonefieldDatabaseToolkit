@@ -828,7 +828,7 @@ DEFINE CLASS sfregistryodbc AS sfregistry OF "sfregistry.vcx"
 		*** are last two passed with @? If so, change DECLARE in INIT.
 				lnSuccess   = SQLConfigDataSource(0, cnODBC_REMOVE_DSN, tcDriverName, ;
 					lcDSNString)
-				llReturn    = llSuccess > cnSUCCESS
+				llReturn    = lnSuccess > cnSUCCESS
 				if not llReturn
 					This.HandleODBCError()
 				endif not llReturn
