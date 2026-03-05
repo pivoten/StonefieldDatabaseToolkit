@@ -1900,8 +1900,6 @@ DEFINE CLASS sfutility AS sfcustom OF "sfctrls.vcx" 		&& A class containing vari
 		
 		lparameters tcDirectory, ;
 			tlTotal
-		lparameters tcDirectory, ;
-			tlTotal
 		local lcDir, ;
 			lnResult, ;
 			lcDLL, ;
