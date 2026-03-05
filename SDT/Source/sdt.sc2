@@ -3014,7 +3014,7 @@ DEFINE CLASS frmsdt AS sdtform OF "sdtcontrols.vcx"
 		
 		* If this is the demo version, ensure only the demo tables are in it.
 		
-				lnTables = adbobject(laTables, 'Table')
+				lnTables = adbobjects(laTables, 'Table')
 				if lnTables > 2 and .lDemo
 					.oMessage.ErrorMessage(ccERR_INVALID_DEMO)
 					return .F.

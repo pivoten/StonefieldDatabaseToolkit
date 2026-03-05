@@ -4614,8 +4614,8 @@ DEFINE CLASS sdtmgr AS basemgr OF "dbcxmgr.vcx" 		&& The SDT manager for DBCX
 			lcCurrDBC = dbc()
 			.SetDatabase(lcDBC)
 			if not empty(lcDBC)
-				lnTables = adbobject(laTables, 'Table')
-				lnViews  = adbobject(laViews,  'View')
+				lnTables = adbobjects(laTables, 'Table')
+				lnViews  = adbobjects(laViews,  'View')
 			else
 				lnTables = .Parent.DBCXGetAllObjects(lcDBC + '!Table', @laTables)
 				lnViews  = 0
