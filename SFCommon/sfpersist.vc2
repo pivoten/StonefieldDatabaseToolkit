@@ -1300,6 +1300,7 @@ DEFINE CLASS sfpersistenttable AS sfpersistentfile OF "sfpersist.vcx"
 					lcKey   = .cKeyField
 					lcValue = .cValueField
 					insert into (.cAlias) (&lcKey, &lcValue) values (tcKey, tuValue)
+					llReturn = .T.
 				otherwise
 					replace (.cValueField) with tuValue in (.cAlias)
 					llReturn = .T.
